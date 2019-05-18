@@ -1,4 +1,5 @@
 import socket
+import sys
 from tile import sleep
 
 def client_app():
@@ -9,7 +10,15 @@ def client_app():
     server_port = int(sys.argv[2])
     server_address = (server_address, server_port)
 
-    client.connect(server_address)
+    if(client.connect(server_address))
+        print("Connected to #dataserver")
 
     while True:
-        try
+        try:
+            data = s.recv(1024).decode()
+            print("Received:")
+            print(data)
+        finally:
+            pass
+
+client_app()
