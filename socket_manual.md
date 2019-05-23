@@ -1,4 +1,4 @@
-# Sockets
+# Socket
 
 An internet socket or a network socket is the endpoint of a bidirectional inter-process communication flow across an IP based computer network, such as the internet.
 A socket is therfore a thethering structure that is bi-directional, disposable and acts between two servers.
@@ -34,3 +34,18 @@ Creates and returns the socket object `mysocket` using the `socket()` function. 
 `SOCK_STREAM`, `SOCK_DGRAM`, `SOCK_RAW`, `SOCK_RDM`, `SOCK_SEQPACKET` etc. More constants may be available depending on the system.
 
 `AF_*` and `SOCK_*` (address family and socket kind) constants are part of `IntEnum` collections. `IntEnum` is the base class for creating enumerated constants that are also a subclass of `int`
+
+```python
+mysocket.connect((<address>)) #address = (hostname, port)
+```
+
+The socket object is used to connect  to the given server address. The address format depends on the address family denoted by `AF_INET`. The `connect()` method connects to a remote socket at *address*.
+
+If connection is interrupted by a signal, the `connect()` method
+
+- waits until connection completion
+- raises `socket.timeout exception` on connection timeout. `socket.timeout` is a subclass of `OSError`, raised when a timeout occurs on a socket which has had timeouts enabled via a prior call to `settimeout()` or implicitly through `setdefaulttimeout()`. The accompanying value is a string whose value is currently always "*timed out*".
+
+`socket.connect_ex( <address> )` similar to the `connect()` method but returns an error indicator instead of raising an exception for errors returned by *C-level `connect()` call*. Other errors like *host not found* can still raise exception though. For `socket.connect_ex()`, error indicators are; 0 for successful operation and the function returns the value of `errno` variable in other cases. This method is useful in supporting *asynchronous connects*. `socket.timeout` is raised by the `connect()`method if the signal doesn't raise an exception and the socket is blocking or has a timeout. 
+
+For non-blocking sockets, the method raises an `InterruptedError` exception if the connection is interrupted by a signal( or if the exception is raised by signal handler ). In *Python 3.5* and above, however, the method waits until connection completes instead of raising an `InterruptedError` exception if the connection is interrupted by a signal, the signal handler raises an exception and the socket is blocking or has had a timeout.
