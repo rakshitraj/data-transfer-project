@@ -1,0 +1,6 @@
+client.md
+directory/
+*.log
+
+# This is a comment. Negating an ignore
+!audit.log 
