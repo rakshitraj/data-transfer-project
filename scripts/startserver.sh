@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 SERVER/server.py 'localhost' 10000
+python3 ../server/server.py 'localhost' 10000
