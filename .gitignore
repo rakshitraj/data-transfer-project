@@ -1,6 +1,7 @@
-client.md
-directory/
-*.log
+# ignore records
+*.csv
+# include these record files
+!record.csv 
 
-# This is a comment. Negating an ignore
-!audit.log 
+# ignore these specific files
+RECORD/master_record.csv
