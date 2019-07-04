@@ -12,7 +12,7 @@ import socket
 mysocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 mysocket.connect(( <host> , <port> ))
 ```
-#### Code explained
+## Creating a socket - Code explained
 ```python
 import socket
 ```
