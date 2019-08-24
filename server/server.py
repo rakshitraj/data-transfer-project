@@ -4,7 +4,7 @@ import csv
 import os.path
 from time import sleep
 
-filepath = 'RECORD/master_record.csv'
+filepath = '../record/master_record.csv'
 
 # Initialize csv file with headers
 def init_record():
