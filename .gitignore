@@ -4,4 +4,4 @@
 !record.csv 
 
 # ignore these specific files
-RECORD/master_record.csv
+record/master_record.csv
